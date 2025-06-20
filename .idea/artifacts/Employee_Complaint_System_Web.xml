@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Employee_Complaint_System:Web">
+    <output-path>$PROJECT_DIR$/out/artifacts/Employee_Complaint_System_Web</output-path>
+    <root id="archive" name="Employee_Complaint_System_Web.war">
+      <element id="artifact" artifact-name="Employee_Complaint_System:Web exploded" />
+    </root>
+  </artifact>
+</component>
