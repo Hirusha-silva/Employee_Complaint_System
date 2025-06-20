@@ -18,7 +18,7 @@ public class UserDAO {
          ResultSet rs = ps.executeQuery();
 
          if(rs.next()){
-             return new User(rs.getInt(1),rs.getString(2),rs.getString(3));
+             return new User(rs.getInt("id"),rs.getString("username"),rs.getString("role"));
          }
 
         } catch (SQLException e) {

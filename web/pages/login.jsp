@@ -1,118 +1,104 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: hirushasilva
-  Date: 2025-06-20
-  Time: 12:48
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
-<html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Title</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #e0e5ec;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+    <meta charset="UTF-8">
+    <title>Login - Complaint Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f1f5f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-    .login-container {
-      background: #e0e5ec;
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 10px 10px 30px #c3c8d0, -10px -10px 30px #ffffff;
-      width: 360px;
-      max-width: 90%;
-    }
+        .card-login {
+            background-color: white;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
 
-    h2 {
-      text-align: center;
-      color: #333;
-      margin-bottom: 30px;
-      font-size: 24px;
-    }
+        .card-header {
+            background-color: #0d6efd;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 12px 12px 0 0;
+            padding: 20px;
+        }
 
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 14px;
-      font-weight: 600;
-      color: #555;
-    }
+        .card-body {
+            padding: 30px;
+        }
 
-    input[type="text"],
-    input[type="password"] {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 20px;
-      border: none;
-      border-radius: 10px;
-      font-size: 15px;
-      background: #e0e5ec;
-      box-shadow: inset 5px 5px 10px #c3c8d0, inset -5px -5px 10px #ffffff;
-      color: #333;
-      transition: all 0.3s ease;
-    }
+        label {
+            font-size: 14px;
+            color: #444;
+        }
 
-    input[type="text"]:focus,
-    input[type="password"]:focus {
-      box-shadow: inset 2px 2px 6px #c3c8d0, inset -2px -2px 6px #ffffff;
-      outline: none;
-    }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+        }
 
-    input[type="submit"] {
-      width: 100%;
-      padding: 12px;
-      background: #e0e5ec;
-      border: none;
-      border-radius: 10px;
-      font-weight: bold;
-      font-size: 15px;
-      color: #333;
-      cursor: pointer;
-      box-shadow: 5px 5px 15px #c3c8d0, -5px -5px 15px #ffffff;
-      transition: 0.3s;
-    }
+        .btn-login {
+            width: 100%;
+            padding: 10px;
+            font-size: 15px;
+            border: none;
+            border-radius: 6px;
+            background-color: #0d6efd;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
 
-    input[type="submit"]:hover {
-      background: blue;
-    }
+        .btn-login:hover {
+            background-color: #084dbf;
+        }
 
-    .error-message {
-      margin-top: 15px;
-      background-color: #ffefef;
-      border-left: 5px solid #ff4c4c;
-      color: #c00;
-      padding: 10px;
-      border-radius: 8px;
-      font-size: 13px;
-      box-shadow: 0 2px 6px rgba(255, 0, 0, 0.1);
-    }
-  </style>
-
-
+        .error-message {
+            color: red;
+            text-align: center;
+            font-size: 13px;
+            margin-top: 15px;
+        }
+    </style>
 </head>
 <body>
-<div class="login-container">
-  <h2>Login</h2>
-  <form method="post" action="../LoginServlet">
-    <label for="username">Username</label>
-    <input type="text" id="username" name="username" required />
 
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password" required />
+<div class="card-login">
+    <div class="card-header">
+        Login
+    </div>
+    <div class="card-body">
+        <form method="post" action="${pageContext.request.contextPath}/LoginServlet">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required />
 
-    <input type="submit" value="Login" />
-  </form>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required />
 
-  <% if (request.getParameter("error") != null) { %>
-  <div class="error-message">Invalid username or password!</div>
-  <% } %>
+            <input type="submit" value="Login" class="btn-login" />
+        </form>
+
+        <% if (request.getParameter("error") != null) { %>
+        <div class="error-message">Invalid username or password!</div>
+        <% } %>
+    </div>
 </div>
+
 </body>
 </html>
+
