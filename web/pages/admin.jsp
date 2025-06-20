@@ -1,49 +1,3 @@
-<%--<%@ page import="java.util.*, model.Complaint, dao.ComplaintDAO" %>--%>
-<%--<%@ page import="model.User" %>--%>
-<%--<%--%>
-<%--    User user = (User) session.getAttribute("user");--%>
-<%--    if (user == null || !"Admin".equalsIgnoreCase(user.getRole())) {--%>
-<%--        response.sendRedirect("login.jsp");--%>
-<%--        return;--%>
-<%--    }--%>
-
-<%--    List<Complaint> allComplaints = ComplaintDAO.getAllComplaints();--%>
-<%--%>--%>
-<%--<html>--%>
-<%--<head><title>All Complaints - Admin</title></head>--%>
-<%--<body>--%>
-<%--<h2>All Complaints</h2>--%>
-<%--<table border="1">--%>
-<%--    <tr>--%>
-<%--        <th>ID</th><th>Title</th><th>Description</th><th>User ID</th><th>Status</th>--%>
-<%--    </tr>--%>
-<%--    <% for (Complaint c : allComplaints) { %>--%>
-<%--    <tr>--%>
-<%--        <td><%= c.getId() %></td>--%>
-<%--        <td><%= c.getTitle() %></td>--%>
-<%--        <td><%= c.getDescription() %></td>--%>
-<%--        <td><%= c.getUserId() %></td>--%>
-<%--        <td><%= c.getStatus() %></td>--%>
-<%--    </tr>--%>
-
-
-<%--    <td>--%>
-<%--        <form action="../DeleteComplaintServlet" method="post" onsubmit="return confirm('Are you sure you want to delete this complaint?');">--%>
-<%--            <input type="hidden" name="id" value="<%= c.getId() %>" />--%>
-<%--            <input type="submit" value="Delete" class="btn btn-danger btn-sm" />--%>
-<%--        </form>--%>
-<%--    </td>--%>
-
-<%--    <% } %>--%>
-
-<%--</table>--%>
-
-
-<%--<p><a href="dashboard.jsp">Back to Dashboard</a></p>--%>
-<%--</body>--%>
-<%--</html>--%>
-
-
 <%@ page import="java.util.*, lk.ijse.project.model.Complaint,lk.ijse.project.dao.ComplaintDAO" %>
 <%@ page import="lk.ijse.project.model.User" %>
 <%
@@ -111,6 +65,9 @@
         .action-form {
             display: inline;
         }
+        .btn {
+            border-radius: 0;
+        }
     </style>
 </head>
 <body>
@@ -141,10 +98,10 @@
                     <td><%= c.getUserId() %></td>
                     <td><%= c.getStatus() %></td>
                     <td>
-                        <form class="action-form" action="../DeleteComplaintServlet" method="post"
+                        <form class="action-form" action="../AdminServlet" method="post"
                               onsubmit="return confirm('Are you sure you want to delete this complaint?');">
                             <input type="hidden" name="id" value="<%= c.getId() %>" />
-                            <input type="submit" value="Delete" class="btn btn-danger btn-sm btn-rounded" />
+                            <input type="submit" id="btn" value="Delete" class="btn btn-danger btn-sm btn-rounded" />
                         </form>
                     </td>
                 </tr>

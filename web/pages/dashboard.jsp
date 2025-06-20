@@ -89,7 +89,7 @@
         <a class="navbar-brand" href="#">Complaint Management System</a>
         <div class="d-flex text-white align-items-center">
             Hi : <b>&nbsp;<%= user.getUsername() %></b>
-            <a href="../LogoutServlet" class="btn btn-outline-light btn-sm ms-3">Logout</a>
+            <a href="../AdminServlet" class="btn btn-outline-light btn-sm ms-3">Logout</a>
         </div>
     </div>
 </nav>
