@@ -19,7 +19,7 @@
         .card-login {
             background-color: white;
             border: none;
-            border-radius: 12px;
+            border-radius: 50px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             max-width: 400px;
             width: 100%;

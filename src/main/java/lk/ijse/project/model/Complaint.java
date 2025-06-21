@@ -6,14 +6,16 @@ public class Complaint {
     private String description;
     private int userId;
     private String status;
+    private String solution;
 
-    public Complaint(int id, String title, String description, int userId, String status) {
+    public Complaint(int id, String title, String description, int userId, String status, String solution) {
 
         this.id = id;
         this.title = title;
         this.description = description;
         this.userId = userId;
         this.status = status;
+        this.solution = solution;
 
     }
 
@@ -39,5 +41,11 @@ public class Complaint {
     }
     public String getStatus() {
         return status;
+    }
+    public String getSolution() {
+        return solution;
+    }
+    public void setSolution(String solution) {
+        this.solution = solution;
     }
 }

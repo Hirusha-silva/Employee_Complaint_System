@@ -39,7 +39,8 @@ public class ComplaintDAO {
                         rs.getString("title"),
                         rs.getString("description"),
                         rs.getInt("user_id"),
-                        rs.getString("status")
+                        rs.getString("status"),
+                        rs.getString("solution")
                 );
                 complaints.add(c);
             }
@@ -65,7 +66,8 @@ public class ComplaintDAO {
                         rs.getString("title"),
                         rs.getString("description"),
                         rs.getInt("user_id"),
-                        rs.getString("status")
+                        rs.getString("status"),
+                        rs.getString("solution")
                 );
                 list.add(c);
             }
@@ -79,6 +81,20 @@ public class ComplaintDAO {
         try (Connection conn = DBConnection.getDataSource().getConnection();
              PreparedStatement ps = conn.prepareStatement("DELETE FROM complaints WHERE id = ?")) {
             ps.setInt(1, id);
+            return ps.executeUpdate() > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static boolean update(int complaintId,String status,String solution) {
+        String sql = "UPDATE complaints SET status = ?, solution = ? WHERE id = ?";
+        try (Connection conn = DBConnection.getDataSource().getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, status);
+            ps.setString(2, solution);
+            ps.setInt(3, complaintId);
             return ps.executeUpdate() > 0;
         } catch (Exception e) {
             e.printStackTrace();

@@ -15,7 +15,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #e3f2fd; /* Light blue background */
+            background-color: #e3f2fd;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #0d47a1;
         }
@@ -70,6 +70,9 @@
             padding: 8px 20px;
             border-radius: 20px;
             transition: background 0.3s ease;
+            margin-left: 1000px;
+            width: 200px;
+            margin-bottom: 50px;
         }
 
         .btn-blue:hover {

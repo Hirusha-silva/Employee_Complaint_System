@@ -10,7 +10,6 @@ import lk.ijse.project.dao.ComplaintDAO;
 import lk.ijse.project.model.User;
 
 import java.io.IOException;
-
 @WebServlet("/AdminServlet")
 public class AdminServlet extends HttpServlet {
     @Override
@@ -31,12 +30,12 @@ public class AdminServlet extends HttpServlet {
             resp.sendRedirect("pages/login.jsp");
         }
     }
-
+//logout
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession(false); // get existing session
+        HttpSession session = req.getSession(false);
         if (session != null) {
-            session.invalidate(); // invalidate session to log out
+            session.invalidate();
         }
         resp.sendRedirect("pages/login.jsp");
     }
